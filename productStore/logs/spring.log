@@ -1,0 +1,9 @@
+2024-01-22 07:47:42 - c.hardware.ProductStorageApplication - Starting ProductStorageApplication using Java 17.0.9 with PID 18884 (E:\Spring_practice\hardware\hardShop\productStore\target\classes started by HP in E:\Spring_practice\hardware\hardShop)
+2024-01-22 07:47:42 - c.hardware.ProductStorageApplication - No active profile set, falling back to 1 default profile: "default"
+2024-01-22 07:47:45 - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9092 (http)
+2024-01-22 07:47:46 - o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-01-22 07:47:46 - o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-01-22 07:47:46 - o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-01-22 07:47:46 - o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4019 ms
+2024-01-22 07:47:48 - o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9092 (http) with context path ''
+2024-01-22 07:47:49 - c.hardware.ProductStorageApplication - Started ProductStorageApplication in 8.338 seconds (process running for 10.332)
