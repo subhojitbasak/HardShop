@@ -1,5 +1,6 @@
 package org.hardware.Controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.hardware.Entity.Order;
 import org.hardware.Entity.Products;
 import org.hardware.Service.OrderService;
@@ -13,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/order")
+@Slf4j
 public class OrderController {
 
     @Autowired
@@ -38,6 +40,8 @@ public class OrderController {
 //            restTemplate.postForObject(productUpdate+order.getProductId(),requestEntity,Products.class);
             return ResponseEntity.status(HttpStatus.CREATED).body("your order request saved!!!");
         }
+        log.error("Product Not avaliable");
+
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product currenty unavaliable");
 
     }
@@ -45,12 +49,14 @@ public class OrderController {
     @GetMapping("/find")
     public List<Order> findAllOrder() {
         List<Order> order = orderService.findAllOrder();
+        log.debug("Showing all orders , This is a debug level log ");
         return order;
     }
 
     @DeleteMapping("/delete/{orderId}")
     public ResponseEntity<String> deleteOrder(@PathVariable("orderId") Long orderId) {
         orderService.deleteOrder(orderId);
+        log.info("Product has been sucessfully deleted , order id:"+orderId);
         return ResponseEntity.status(HttpStatus.OK).body("Order sucessfully deleted!!");
     }
 
