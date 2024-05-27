@@ -2,6 +2,7 @@ package org.hardware.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Date;
 import java.util.UUID;
@@ -19,7 +20,6 @@ public class Order {
     private UUID productId;
     @Column(nullable = false)
     private Date orderDate;
-//    private Products product;
     private String status;
     private String productsName;
     private int orderQty;

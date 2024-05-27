@@ -22,24 +22,19 @@ public class OrderController {
 
     @PostMapping("/create")
     public ResponseEntity<String> createOrder(@RequestBody Order order) {
-
         String productAvaliabilityUrl = "http://localhost:9091/Products/checkAvaliability";
-
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-
         HttpEntity<Order> requestEntity = new HttpEntity<>(order, headers);
-
         Boolean productAvaliability = restTemplate.postForObject(productAvaliabilityUrl, requestEntity, Boolean.class);
-
         if(productAvaliability != null && productAvaliability){
             orderService.saveOrder(order);
 //            System.out.println(productUpdate+order.getProductId());
 //            restTemplate.postForObject(productUpdate+order.getProductId(),requestEntity,Products.class);
             return ResponseEntity.status(HttpStatus.CREATED).body("your order request saved!!!");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product currenty unavaliable");
 
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product currenty unavaliable");
     }
 
     @GetMapping("/find")
